@@ -1,3 +1,11 @@
-<p>
-  header works!
-</p>
+<nav>
+  <span class="navbar-brand">Pokeapp</span>
+
+    <div>
+      <div class="form-group has-feedback">
+        <input id="search-box" type="text" [value]="text" (keyup)="textChanged($event)" ng-model="params.text" class="form-control" placeholder="type something here...">
+        <span ng-if="params.text" onclick="clearText()" class="glyphicon glyphicon-remove form-control-feedback" style="cursor: pointer; pointer-events: all;" uib-tooltip="clear">
+        </span>
+      </div>
+    </div>
+</nav>

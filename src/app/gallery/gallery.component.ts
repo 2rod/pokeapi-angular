@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TextChange} from '../text-change';
 
 @Component({
   selector: 'app-gallery',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+  text: string;
+
+  constructor(private _textChange: TextChange) {
+      _textChange.subscribe({
+        next: text => {
+          this.text = text;
+        }
+      })
+    }
 
   ngOnInit() {
   }

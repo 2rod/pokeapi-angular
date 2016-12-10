@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
+import { PokeapiClientService } from './pokeapi-client.service';
 import { AppComponent } from './app.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
@@ -22,9 +24,19 @@ import { GalleryComponent } from './gallery/gallery.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: GalleryComponent
+      },
+      {
+        path: 'pokemon/:pokemonId',
+        component: PokemonComponent
+      }
+    ])
   ],
-  providers: [],
+  providers: [PokeapiClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

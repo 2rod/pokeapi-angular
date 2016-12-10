@@ -1,3 +1,6 @@
-<p>
-  pokemon-list-item works!
-</p>
+<a (click)="goToPokemon()">
+  <div class="pokemon-card">
+    <img [src]="pokemon.imageURL">
+    <h1>{{pokemon.name}}</h1>
+  </div>
+</a>
