@@ -20,6 +20,7 @@ export class PokeapiClientService {
   // }
 
   getPokemons(): Promise<Pokemon[]> {
+
     return this.http.get(`${this.baseURL}pokemon`)
       .toPromise()
       .then(response => {

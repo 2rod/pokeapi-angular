@@ -1,9 +1,8 @@
 <nav>
-  <span class="navbar-brand">Pokeapp</span>
-
+  <div class="navbar-brand">Pokeapp</div>
     <div>
       <div class="form-group has-feedback">
-        <input id="search-box" type="text" [value]="text" (keyup)="textChanged($event)" ng-model="params.text" class="form-control" placeholder="type something here...">
+        <input id="search-box" type="text" [value]="text" (keyup)="textChanged($event)" ng-model="params.text" class="form-control" placeholder="Search...">
         <span ng-if="params.text" onclick="clearText()" class="glyphicon glyphicon-remove form-control-feedback" style="cursor: pointer; pointer-events: all;" uib-tooltip="clear">
         </span>
       </div>

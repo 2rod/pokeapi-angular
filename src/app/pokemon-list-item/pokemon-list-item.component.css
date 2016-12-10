@@ -1,0 +1,12 @@
+a {
+  cursor: pointer;
+}
+
+.pokemon-card {
+  text-align: center;
+  margin: 1rem;
+}
+
+.pokemon-name {
+  text-transform: uppercase;
+}
