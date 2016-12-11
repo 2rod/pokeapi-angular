@@ -16,33 +16,40 @@ export class PokemonListComponent implements OnInit {
   type: string;
   @Input()
   searchTerm: string;
-  pokemons: Pokemon;
+  pokemon: Pokemon;
+  pokemonList: Pokemon[];
+  errMsg: string;
 
   constructor(private client: PokeapiClientService) {
   }
 
-  // searchAgain(): void {
-  //   if (this.type === "search" && this.searchTerm) {
-  //     this.client.getPokemonsFromSearch(this.searchTerm)
-  //       .then(pokemons => this.pokemons = pokemons);
-  //   }
-  // }
+  searchAgain(): void {
+    if (this.type === "search" && this.searchTerm) {
+      this.client.getPokemonByName(this.searchTerm)
+        .then(pokemon => this.pokemon = pokemon);
+    }
+  }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
      let changedProp = changes['searchTerm'];
      if (changedProp) {
        this.searchTerm = changedProp.currentValue;
-      //  this.searchAgain();
+       this.searchAgain();
      }
   }
 
   ngOnInit() {
     if (this.type === "search" && this.searchTerm) {
-      // this.client.getPokemonsFromSearch(this.searchTerm)
-        // .then(pokemons => this.pokemons = pokemons);
+      this.client.getPokemonByName(this.searchTerm)
+        .then(pokemon => this.pokemon = pokemon)
+        .catch(err => {
+          this.errMsg = err;
+          console.log('errMsg', this.errMsg);
+        })
     } else {
       this.client.getPokemons()
-        .then(pokemons => this.pokemons = pokemons);
+        .then(pokemons => this.pokemonList = pokemons)
+        .catch(err => this.errMsg = err.message )
     }
   }
 

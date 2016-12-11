@@ -16,8 +16,13 @@ export class HeaderComponent implements OnInit {
   }
 
   textChanged(event) {
-    console.log(event.target.value)
-    this._textChange.next(event.target.value);
+    console.log(event.target.value);
+    this.text = event.target.value;
+    // this._textChange.next(event.target.value);
+  }
+
+  emitText(event) {
+    if (this.text) this._textChange.next(this.text);
   }
 
   ngOnInit() {

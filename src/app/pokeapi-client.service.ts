@@ -20,16 +20,11 @@ export class PokeapiClientService {
   // }
 
   getPokemons(): Promise<Pokemon[]> {
-
     return this.http.get(`${this.baseURL}pokemon`)
       .toPromise()
       .then(response => {
-        console.log('api response', response);
         return response.json().results.map((pokemon) => Pokemon.parse(pokemon))
-        // return Pokemon.parse(response.json());
-
       })
-
       .catch(this.handleError)
   }
 
@@ -42,19 +37,19 @@ export class PokeapiClientService {
       .catch(this.handleError)
   }
 
-  // getPokemonByName(name: string): Promise<Pokemon> {
-  //   return this.http.get(`${this.baseURL}/pokemon/${name}`)
-  //     .toPromise()
-  //     .then(response => {
-  //       return Pokemon.parse(response.json());
-  //     })
-  //     .catch(this.handleError)
-  // }
+  getPokemonByName(name: string): Promise<Pokemon> {
+    return this.http.get(`${this.baseURL}pokemon/${name}`)
+      .toPromise()
+      .then(response => {
+        return Pokemon.parse(response.json());
+      })
+      .catch(this.handleError)
+  }
 
   private handleError(error: any): Promise<any> {
     // debugger;
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+    console.error('An error occurred:', error.statusText);
+    return Promise.reject(error.statusText || error);
   }
 
 }

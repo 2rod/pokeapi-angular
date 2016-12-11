@@ -1,1 +1,8 @@
-<app-pokemon-list></app-pokemon-list>
+<section *ngIf="text">
+  <h4>Pokemon Search:</h4>
+  <app-pokemon-list [type]="'search'" [searchTerm]="text"></app-pokemon-list>
+</section>
+<section>
+  <h4>Pokemon Gallery</h4>
+  <app-pokemon-list></app-pokemon-list>
+</section>

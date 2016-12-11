@@ -1,5 +1,11 @@
-<div class="pokemon-list">
-  <div *ngFor="let pokemon of pokemons">
+<div *ngIf="pokemonList" class="pokemon-list">
+  <div *ngFor="let pokemon of pokemonList">
     <app-pokemon-list-item [pokemon]="pokemon"></app-pokemon-list-item>
   </div>
+</div>
+<div *ngElse class="pokemon-list">
+    <app-pokemon-list-item [pokemon]="pokemon"></app-pokemon-list-item>
+</div>
+<div *ngIf="errMsg" class="pokemon-list">
+    <p class="error"><span class="term">"{{searchTerm}}"</span> {{errMsg}}</p>
 </div>

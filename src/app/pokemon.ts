@@ -2,7 +2,6 @@ export class Pokemon {
   id: string;
   name: string;
   url: string;
-  // type: string;
   imageURL: string;
 
   static parse(data){
