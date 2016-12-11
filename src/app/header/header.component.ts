@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   clearText() {
     this.text = '';
+    this._textChange.next('');
   }
 
   textChanged(event) {
