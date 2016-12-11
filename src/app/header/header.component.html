@@ -2,7 +2,7 @@
   <div class="navbar-brand">Pokéapp</div>
     <div>
       <div class="form-group has-feedback">
-        <input id="search-box" type="text" [value]="text" (keyup)=textChanged($event) class="form-control" placeholder="Search...">
+        <input id="search-box" type="text" [value]="text" (keyup)="$event.keyCode == 13 ? emitText() : textChanged($event)" class="form-control" placeholder="Search...">
         <span (click)="clearText()" class="glyphicon glyphicon-remove form-control-feedback" style="cursor: pointer; pointer-events: all;" uib-tooltip="clear">
         </span>
       </div>
