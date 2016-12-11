@@ -22,6 +22,7 @@ export class PokemonComponent implements OnInit {
       let pokemonId = +params['pokemonId'];
       this.client.getPokemonById(pokemonId)
         .then(pokemon => {
+          console.log('pokemon', pokemon);
           this.pokemon = pokemon;
         });
     })

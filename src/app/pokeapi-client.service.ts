@@ -32,6 +32,7 @@ export class PokeapiClientService {
     return this.http.get(`${this.baseURL}pokemon/${id}`)
       .toPromise()
       .then(response => {
+        console.log('response by id', response);
         return Pokemon.parse(response.json());
       })
       .catch(this.handleError)

@@ -1,0 +1,9 @@
+h1.name {
+  text-transform: capitalize;
+}
+
+.back-link {
+    padding: 1.5rem;
+    width: 75rem;
+    margin: auto;
+}

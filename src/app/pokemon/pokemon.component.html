@@ -1,14 +1,10 @@
 <section id='main-info'>
   <div class="container">
-    <img [src]="pokemon.imageURL">
     <div>
-      <h1>{{pokemon.imageURL}}</h1>
-      <h1>{{pokemon.name}}</h1>
+      <h1 class="name">{{pokemon.name}}</h1>
+      <div *ngIf="pokemon.imageURL" class="image"><img [src]="pokemon.imageURL" [alt]="pokemon.name" /></div>
+      <div class="details">More Details Coming Soon!</div>
     </div>
   </div>
+  <div class="back-link"><a href="/">&laquo; Back</a></div>
 </section>
-<div class="container">
-  <section>
-    <p>details</p>
-  </section>
-</div>

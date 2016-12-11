@@ -34,7 +34,7 @@ export class PokemonListComponent implements OnInit {
      let changedProp = changes['searchTerm'];
      if (changedProp) {
        this.searchTerm = changedProp.currentValue;
-       this.searchAgain();
+      //  this.searchAgain();
      }
   }
 
