@@ -39,9 +39,11 @@ export class PokeapiClientService {
   }
 
   getPokemonByName(name: string): Promise<Pokemon> {
+    name = name.toLowerCase();
     return this.http.get(`${this.baseURL}pokemon/${name}`)
       .toPromise()
       .then(response => {
+        console.log('json in by name search', response.json());
         return Pokemon.parse(response.json());
       })
       .catch(this.handleError)

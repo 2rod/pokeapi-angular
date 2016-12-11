@@ -1,3 +1,7 @@
+<section *ngIf="text" class="search">
+  <h4>Pokemon Search:</h4>
+  <app-pokemon-list [type]="'search'" [searchTerm]="text"></app-pokemon-list>
+</section>
 <section id='main-info'>
   <div class="container">
     <div>

@@ -26,7 +26,11 @@ export class PokemonListComponent implements OnInit {
   searchAgain(): void {
     if (this.type === "search" && this.searchTerm) {
       this.client.getPokemonByName(this.searchTerm)
-        .then(pokemon => this.pokemon = pokemon);
+        .then(pokemon => this.pokemon = pokemon)
+        .catch(err => {
+          this.errMsg = err;
+          console.log('errMsg in searchAgain', this.errMsg);
+        })
     }
   }
 
@@ -41,7 +45,11 @@ export class PokemonListComponent implements OnInit {
   ngOnInit() {
     if (this.type === "search" && this.searchTerm) {
       this.client.getPokemonByName(this.searchTerm)
-        .then(pokemon => this.pokemon = pokemon)
+        .then(pokemon => {
+          this.pokemon = pokemon;
+          this.errMsg = ''; // clear out any previous errors
+          console.log('pokemon in list component', this.pokemon, 'errMsg', this.errMsg);
+        })
         .catch(err => {
           this.errMsg = err;
           console.log('errMsg', this.errMsg);

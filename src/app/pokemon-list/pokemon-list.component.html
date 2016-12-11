@@ -3,7 +3,7 @@
     <app-pokemon-list-item [pokemon]="pokemon"></app-pokemon-list-item>
   </div>
 </div>
-<div *ngElse class="pokemon-list">
+<div *ngIf="pokemon" class="pokemon-list">
     <app-pokemon-list-item [pokemon]="pokemon"></app-pokemon-list-item>
 </div>
 <div *ngIf="errMsg" class="pokemon-list">

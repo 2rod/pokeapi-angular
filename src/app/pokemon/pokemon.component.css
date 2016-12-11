@@ -3,7 +3,12 @@ h1.name {
 }
 
 .back-link {
-    padding: 1.5rem;
-    width: 75rem;
-    margin: auto;
+  padding: 1.5rem;
+  width: 75rem;
+  margin: auto;
+}
+
+section.search {
+  padding: 2.5rem;
+  background-color: #F5F5F5;
 }

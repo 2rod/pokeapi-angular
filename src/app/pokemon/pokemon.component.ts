@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PokeapiClientService } from '../pokeapi-client.service';
 import { Pokemon } from '../pokemon';
+import { TextChange} from '../text-change';
 
 @Component({
   selector: 'app-pokemon',
@@ -11,11 +12,19 @@ import { Pokemon } from '../pokemon';
 })
 export class PokemonComponent implements OnInit {
   pokemon: Pokemon = new Pokemon();
+  text: string;
 
   constructor(
     private route: ActivatedRoute,
-    private client: PokeapiClientService
-  ) { }
+    private client: PokeapiClientService,
+    private _textChange: TextChange
+  ) {
+    _textChange.subscribe({
+      next: text => {
+        this.text = text;
+      }
+    });
+  }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
